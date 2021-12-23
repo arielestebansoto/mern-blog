@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { useLocation } from 'react-router'
 
 import './styles.css'
 
@@ -9,14 +10,15 @@ import { Sidebar } from "../../components/Sidebar"
 
 export const Home = () => {
     const [ posts, setPosts ] = React.useState([])
+    const { search } = useLocation()
 
     React.useEffect(() => {
         const fetchPost = async () => {
-            const res = await axios.get('/posts')
+            const res = await axios.get(`/posts/${search}`)
             setPosts(res.data)
         }
         fetchPost()
-    }, [])
+    }, [search])
 
     return(
         <>
