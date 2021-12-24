@@ -1,4 +1,4 @@
-import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE } from "./actionsTypes"
+import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from "./actionsTypes"
 
 export const LoginStart = (userCredentials) => ({
     type: LOGIN_START
@@ -11,4 +11,8 @@ export const LoginSucces = (user) => ({
 
 export const LoginFailure = () => ({
     type: LOGIN_FAILURE,
+})
+
+export const Logout = () => ({
+    type: LOGOUT,
 })

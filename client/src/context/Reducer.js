@@ -1,4 +1,4 @@
-import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE } from "./actionsTypes"
+import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from "./actionsTypes"
 
 export const Reducer = (state, action) => {
     switch(action.type) {
@@ -19,6 +19,12 @@ export const Reducer = (state, action) => {
                 user: null,
                 isFetching: false,
                 error: true
+            }
+        case LOGOUT:
+            return {
+                user: null,
+                isFetching: false,
+                error: false
             }
         default: return state
     }

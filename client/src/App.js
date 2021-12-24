@@ -1,7 +1,8 @@
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Context } from './context/Context';
 
 import { TopBar } from './components/TopBar'
-
 import { Home } from './pages/Home';
 import { Single } from './pages/Single';
 import { Write } from './pages/Write';
@@ -10,7 +11,7 @@ import { Register } from './pages/Register';
 import { Settings } from './pages/Settings';
 
 export const App = () => {
-  const user = false
+  const { user } = React.useContext(Context)
 
   return (
       <Router>

@@ -1,8 +1,20 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
+
 import './styles.css'
 
+import { Context } from '../../context/Context'
+import { LOGOUT } from '../../context/actionsTypes'
+
 export const TopBar = () => {
-    const user = false
+    const { user, dispatch } = React.useContext(Context)
+
+    const handleLogout = () => {
+        dispatch({type: LOGOUT})
+    }
+
+    const profilePicture =  "https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM" || user.profilePicture
+
     return (
         <div className="top">
             <div className="topLeft">
@@ -25,7 +37,7 @@ export const TopBar = () => {
                     <li className="topListItem">
                         <Link to="/write" className="link">WRITE</Link>
                     </li>
-                    <li className="topListItem">
+                    <li onClick={handleLogout} className="topListItem">
                         { user && "LOGOUT"}
                     </li>
                 </ul>
@@ -35,7 +47,7 @@ export const TopBar = () => {
                     user ? (
                         <img
                             className="topImage" 
-                            src="https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM" 
+                            src={profilePicture} 
                             alt="profile"
                         />
                     ) : (
