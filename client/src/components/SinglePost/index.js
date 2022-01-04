@@ -5,6 +5,8 @@ import axios from 'axios'
 import "./styles.css";
 
 export const SinglePost = () => {
+  const PF = 'http://localhost:5000/images/'
+
   const location = useLocation()
   const path = location.pathname.split('/')[2]
   const [ post, setPost ] = React.useState({})
@@ -25,7 +27,7 @@ export const SinglePost = () => {
           post.photo &&
             <img
               className="singlePostImg"
-              src={post.photo}
+              src={PF + post.photo}
               alt=""
             />
         }

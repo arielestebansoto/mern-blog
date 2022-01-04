@@ -11,7 +11,6 @@ export const Sidebar = () => {
         const getCategories = async() => {
             const res = await axios.get('/categories')
             setCategories(res.data)
-            console.log(res)
         }
         getCategories()
     }, [])
