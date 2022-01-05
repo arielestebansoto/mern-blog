@@ -8,7 +8,8 @@ import { LOGOUT } from '../../context/actionsTypes'
 
 export const TopBar = () => {
     const { user, dispatch } = React.useContext(Context)
-
+    const PF = 'http://localhost:5000/images/'
+    
     const handleLogout = () => {
         dispatch({type: LOGOUT})
     }
@@ -45,11 +46,13 @@ export const TopBar = () => {
             <div className="topRight">
                 {
                     user ? (
-                        <img
-                            className="topImage" 
-                            src={profilePicture} 
-                            alt="profile"
-                        />
+                        <Link to='/settings'>
+                            <img
+                                className="topImage" 
+                                src={PF + user.profilePicture} 
+                                alt="profile"
+                            />
+                        </Link>
                     ) : (
                         <ul className="topList">
                             <li className="topListItem">
